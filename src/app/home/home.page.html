@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      QR CODE HOME
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <form #myForm="ngForm"  novalidate (ngSumbit)='onSubmit(myForm.value)'>
+    <label>Name:</label>
+    <input type='text'name='username' [(ngModel)]='user.username' required><br>
+    <label>Age:</label>
+    <input type='number'name='age' [(ngModel)]='user.age'  required><br>
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male" [(ngModel)]='user.gender' checked>Male
+    <input type="radio" name="gender" value="female" [(ngModel)]='user.gender'>Female<br>
+    <p>Line 1: <input type="text" name="line1" [(ngModel)]="line1"></p>
+    <p>Line 2: <input type="text" name="line2" [(ngModel)]="line2"></p>
+    <p>Line 3: <input type="text" name="line3" [(ngModel)]="line3"></p>
+    <button type="submit" (click)="onSubmit()">test</button>
+  </form> 
+  <p>{{ myForm.value | json }}</p> -->
+
+  
+  <ion-item>
+    <ion-textarea placeholder="Enter your QR data here" [(ngModel)]="data" (ngModelChange)='check()'  [maxlength]="maxLetters"></ion-textarea>
+    <p>remain letters:{{remainLetters}}</p>
+  </ion-item>
+  <p>Line 1: <input type="text" name="line1" [(ngModel)]="line1"></p>
+  <p>Line 2: <input type="text" name="line2" [(ngModel)]="line2"></p>
+  <p>Line 3: <input type="text" name="line3" [(ngModel)]="line3"></p>
+
+  <br/><br/>
+
+  <app-qrcode [qrData]="data" [logoUrl]="logoUrl" [line1]="line1" [line2]="line2" [line3]="line3"></app-qrcode>
+
+</ion-content>
