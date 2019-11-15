@@ -190,16 +190,16 @@ export class QrcodeComponent implements OnInit {
         var logoHeight=imgObj.height;
         if(logoWidth>maxlogosize || logoHeight>maxlogosize){
             if(logoWidth>=logoHeight){
-                r=maxlogosize/logoWidth;
-                logoWidth=maxlogosize;
-                logoHeight=logoHeight*r;
+              r=maxlogosize/logoWidth;
+              logoWidth=maxlogosize;
+              logoHeight=logoHeight*r;
             }else{
-                r=maxlogosize/logoWidth;
-                logoHeight=maxlogosize;
-                logoWidth=logoWidth*r;
+              r=maxlogosize/logoWidth;
+              logoHeight=maxlogosize;
+              logoWidth=logoWidth*r;
             }
         }
-        ctx.drawImage(this,qrsize/2-maxlogosize/2,qrsize/2-maxlogosize/2,logoWidth,logoHeight);
+        ctx.drawImage(this,qrsize/2-logoWidth/2,qrsize/2-logoHeight/2,logoWidth,logoHeight);
         
         var dataUrl =qrcodeCanvas.toDataURL();
         var x:any= document.getElementById("snapshot");
@@ -207,5 +207,17 @@ export class QrcodeComponent implements OnInit {
         qrcodeCanvas.style.display="none";
     }
   }
+
+  download(){
+    var img:any =document.querySelector("#snapshot");
+    if(img.src){
+      var oA = document.createElement('a');
+      oA.href = img.src;
+      oA.download = "qrcode";
+      var event = document.createEvent('MouseEvents');
+      event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+      oA.dispatchEvent(event);
+    }
+}
 
 }

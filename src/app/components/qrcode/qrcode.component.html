@@ -1,10 +1,9 @@
 
-<ion-button expand="full" (click)="scanCode()"><ion-icon name="qr-scanner" slot="start"></ion-icon>Scan Code</ion-button>
 <ion-button expand="full" (click)="createCode()"><ion-icon name="barcode" slot="start"></ion-icon>Create Code</ion-button>
 <br><br>
 <div #printdiv>
     <div *ngIf="createCode" style="text-align:center;margin:0 auto;position: relative" id="qrdiv" #qrdiv media="print">
-        <img id="snapshot"/>
+        <img id="snapshot" />
         <ngx-qrcode [(qrc-value)]="createdCode" qrc-element-type="canvas" qrc-errorCorrectionLevel = "L"  #qrcodeborder ></ngx-qrcode>
 
         <essence-ng2-print 
@@ -26,7 +25,7 @@
 before hash: {{strlenbefore}}
 after hash: {{strlen}}
 
-
+<ion-button expand="full" (click)="scanCode()"><ion-icon name="qr-scanner" slot="start"></ion-icon>Scan Code</ion-button>
 <ion-card *ngIf="scanCode">
   <ion-card-content>
     Result: {{scannedCode}}
@@ -34,5 +33,5 @@ after hash: {{strlen}}
 </ion-card>
 <hr/>
 <ion-button expand="full" (click)="print()">Print</ion-button>
-
+<ion-button expand="full" (click)="download()">Download</ion-button>
 

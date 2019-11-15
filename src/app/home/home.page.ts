@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 export class HomePage {
   title = 'qrcodemaster';
   data='';
-  // logoUrl="/assets/images/download.png";
-  logoUrl="";
+  logoUrl="/assets/images/download.png";
+  // logoUrl="";
   line1='';
   line2='';
   line3='';
